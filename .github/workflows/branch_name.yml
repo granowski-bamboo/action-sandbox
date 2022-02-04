@@ -3,9 +3,12 @@ on:
   pull_request:
     types: [closed]
 
+env:
+  BRANCH_NAME: ${{ github.head_ref }}
+
 jobs:
   branch-name:
     runs-on: ubuntu-latest
     steps:
       - name: echo Branch Name
-        run: echo "${{ github.head_ref }} "
+        run: echo "${{ env.BRANCH_NAME }} "
