@@ -20,4 +20,4 @@ jobs:
           type: now
           target_branch: main
           github_token: ${{ github.token }}
-          input_message: automerge from ${{ github.head_ref }}
+          message: automerge from ${{ github.head_ref }}
