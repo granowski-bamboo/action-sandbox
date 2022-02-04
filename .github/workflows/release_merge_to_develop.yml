@@ -3,9 +3,13 @@ on:
   pull_request:
     types: [closed]
 
+env:
+  SOURCE_BRANCH: ${{ github.head_ref }} # only populated on pull_request events
+  TARGET_BRANCH: ${{ github.base_ref }} # only populated on pull_request events
+
 jobs:
    merge-branch:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+    if: github.event.pull_request.merged == true && startsWith(${{ env.TARGET_BRANCH }}, 'release/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -16,4 +20,4 @@ jobs:
           target_branch: main
           github_token: ${{ github.token }}
         env:
-          INPUT_MESSAGE: 'automerge from ${{ github.head_ref }}'
+          INPUT_MESSAGE: 'automerge from ${{ env.BRANCH_NAME }}'
