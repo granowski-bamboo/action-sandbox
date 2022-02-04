@@ -1,10 +1,14 @@
 name: Merge any release branch to uat
 on:
-  push:
-    branches:
-      - 'release/*'
+  pull_request:
+    types: [closed]
+
+env:
+  BRANCH_NAME: ${{ github.head_ref }}
+
 jobs:
   merge-branch:
+    if: github.event.pull_request.merged == true && contains(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -12,6 +16,7 @@ jobs:
       - name: Merge release -> develop
         uses: devmasx/merge-branch@master
         with:
-          type: now
           target_branch: main
           github_token: ${{ github.token }}
+        env:
+          INPUT_MESSAGE: 'automerge from ${{ env.BRANCH_NAME }}'
