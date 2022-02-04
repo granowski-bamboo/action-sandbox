@@ -1,0 +1,11 @@
+name: Merge any release branch to uat
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo Branch Name
+        run: echo "${{ github.head_ref }} "
