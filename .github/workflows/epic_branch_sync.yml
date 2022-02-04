@@ -1,4 +1,4 @@
-name: Merge release changes back into develop
+name: Epic Branch Sync
 on:
   pull_request:
     types: [closed]
@@ -9,15 +9,15 @@ on:
 
 jobs:
    merge-to-develop:
-    if: github.event.pull_request.merged == true && startsWith(github.base_ref, 'release/')
+    if: github.event.pull_request.merged == true && github.base_ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
 
-      - name: merge release changes down to develop
+      - name: sync epic/test
         uses: devmasx/merge-branch@master
         with:
           type: now
-          target_branch: main
+          target_branch: epic/test
           github_token: ${{ github.token }}
-          message: automerge from ${{ github.head_ref }}
+          message: automerge from ${{ github.base_ref }}
