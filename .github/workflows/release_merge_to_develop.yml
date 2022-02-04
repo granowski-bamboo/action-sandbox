@@ -4,12 +4,7 @@ on:
     types: [closed]
 
 jobs:
-  branch-name:
-    steps:
-      - name: echo Branch Name
-        run: echo "${{ github.head_ref }} "
-  
-  merge-branch:
+   merge-branch:
     if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
       - uses: actions/checkout@master
