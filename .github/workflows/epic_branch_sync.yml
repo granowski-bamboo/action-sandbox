@@ -8,13 +8,13 @@ on:
 #  TARGET_BRANCH: ${{ github.base_ref }}
 
 jobs:
-   merge-to-develop:
+   epic-branch-sync:
     if: github.event.pull_request.merged == true && github.base_ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
 
-      - name: sync epic/test
+      - name: sync epic/test w/ develop
         uses: devmasx/merge-branch@master
         with:
           type: now
