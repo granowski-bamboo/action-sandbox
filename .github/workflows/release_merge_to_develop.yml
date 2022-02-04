@@ -4,13 +4,14 @@ on:
     types: [closed]
 
 jobs:
-  merge-branch:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
-    runs-on: ubuntu-latest
+  branch-name:
     steps:
       - name: echo Branch Name
         run: echo "${{ github.head_ref }} "
-      
+  
+  merge-branch:
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+    runs-on: ubuntu-latest
       - uses: actions/checkout@master
 
       - name: Merge release -> develop
@@ -19,4 +20,4 @@ jobs:
           target_branch: main
           github_token: ${{ github.token }}
         env:
-          INPUT_MESSAGE: 'automerge from ${{ env.BRANCH_NAME }}'
+          INPUT_MESSAGE: 'automerge from ${{ github.head_ref }}'
