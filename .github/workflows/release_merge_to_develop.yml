@@ -3,14 +3,14 @@ on:
   pull_request:
     types: [closed]
 
-env:
-  BRANCH_NAME: ${{ github.head_ref }}
-
 jobs:
   merge-branch:
-    if: github.event.pull_request.merged == true && contains(github.head_ref, 'release/')
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
+      - name: echo Branch Name
+        run: echo "${{ github.head_ref }} "
+      
       - uses: actions/checkout@master
 
       - name: Merge release -> develop
