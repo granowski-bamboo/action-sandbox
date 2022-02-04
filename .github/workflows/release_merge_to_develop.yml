@@ -1,4 +1,4 @@
-name: Merge any release branch to uat
+name: Merge release changes back into develop
 on:
   pull_request:
     types: [closed]
@@ -8,7 +8,7 @@ on:
 #  TARGET_BRANCH: ${{ github.base_ref }}
 
 jobs:
-   merge-branch:
+   merge-to-develop:
     if: github.event.pull_request.merged == true && startsWith(github.base_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
@@ -20,5 +20,4 @@ jobs:
           type: now
           target_branch: main
           github_token: ${{ github.token }}
-        env:
-          INPUT_MESSAGE: 'automerge from ${{ github.head_ref }}'
+          input_message: automerge from ${{ github.head_ref }}
