@@ -20,4 +20,4 @@ jobs:
           target_branch: main
           github_token: ${{ github.token }}
         env:
-          INPUT_MESSAGE: 'automerge from ${{ env.BRANCH_NAME }}'
+          INPUT_MESSAGE: 'automerge from ${{ env.SOURCE_BRANCH }}'
