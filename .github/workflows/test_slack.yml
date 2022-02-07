@@ -2,7 +2,7 @@ name: Test Slack Message
 on:
   push:
     branches:
-      - main
+      - 'main'
 
       - name: Notify slack
         env:
