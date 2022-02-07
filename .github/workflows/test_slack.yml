@@ -1,8 +1,8 @@
 name: Merge release down to develop
 on:
+  push:
     branches:
       - main
-
 
       - name: Notify slack
         env:
@@ -11,5 +11,5 @@ on:
         with:
           # Updates existing message from the first step
           channel_id: C02HLKYAU56 # blue-devs
-          status: test
+          status: test slack message
           color: danger
