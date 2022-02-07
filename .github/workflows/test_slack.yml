@@ -1,4 +1,4 @@
-name: Merge release down to develop
+name: Test Slack Message
 on:
   push:
     branches:
