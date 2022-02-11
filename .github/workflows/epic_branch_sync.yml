@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@master
 
       - name: sync epic/test w/ develop
-        uses: devmasx/merge-branch@master
+        uses:  bholland-bh/merge-branch@master
         with:
           type: now
-          target_branch: epic/test
+          target_branch: ^epic/.*
           github_token: ${{ github.token }}
           message: automerge from ${{ github.base_ref }}
