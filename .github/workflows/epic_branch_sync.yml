@@ -26,12 +26,12 @@ jobs:
       - name: step_two
         if: failure()
         id: step_two
-        run: echo "$MERGE_FAILURE"
+        run: echo $MERGE_FAILURE
 
       - name: step_three
         if: failure()
         id: step_three
-        run: echo ${{ env.MERGE_FAILURE }}
+        run: echo "${{ env.MERGE_FAILURE }}"
       
       # - name: Notify slack failure
       #   if: failure()
