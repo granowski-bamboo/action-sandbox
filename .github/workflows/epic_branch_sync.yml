@@ -28,7 +28,7 @@ jobs:
         run: echo "$MERGE_FAILURE"
 
       - name: step_three
-        id: step_two
+        id: step_three
         run: echo ${{ env.MERGE_FAILURE }}
       
       # - name: Notify slack failure
