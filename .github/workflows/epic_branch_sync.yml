@@ -24,10 +24,12 @@ jobs:
           message: automerge from ${{ github.base_ref }}
 
       - name: step_two
+        if: failure()
         id: step_two
         run: echo "$MERGE_FAILURE"
 
       - name: step_three
+        if: failure()
         id: step_three
         run: echo ${{ env.MERGE_FAILURE }}
       
