@@ -22,24 +22,13 @@ jobs:
           target_branch: ^epic/.*
           github_token: ${{ github.token }}
           message: automerge from ${{ github.base_ref }}
-
-      - name: step_two
-        if: failure()
-        id: step_two
-        run: echo $MERGE_FAILURE
-
-      - name: step_three
-        if: failure()
-        id: step_three
-        run: echo "${{ env.MERGE_FAILURE }}"
       
-      # - name: Notify slack failure
-      #   if: failure()
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-      #   uses: voxmedia/github-action-slack-notify-build@v1
-      #   with:
-      #     channel_id: C02HLKYAU56 # blue-devs
-      #     status: $MERGE_FAILURE
-      #     color: danger
-
+      - name: Notify slack failure
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel_id: C02HLKYAU56 # blue-devs
+          status: ${{ env.MERGE_FAILURE }}
+          color: danger
