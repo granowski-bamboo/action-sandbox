@@ -3,55 +3,10 @@ on:
   pull_request:
     types: [closed]
 
-# only populated on pull_request events
-#  SOURCE_BRANCH: ${{ github.head_ref }} 
-#  TARGET_BRANCH: ${{ github.base_ref }}
-
 jobs:
-   merge-to-develop:
-    if: github.event.pull_request.merged == true && startsWith(github.base_ref, 'release/')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify slack started
-        id: slack # IMPORTANT: reference this step ID value in future Slack steps
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel_id: C02HLKYAU56 # blue-devs
-          status: Merging to develop
-          color: warning
-      
-      - uses: actions/checkout@master
-
-      - name: merge release changes down to develop
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          target_branch: main
-          github_token: ${{ github.token }}
-          message: automerge from ${{ github.base_ref }}
-
-      - name: Notify slack success
-        if: success()
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          # Updates existing message from the first step
-          message_id: ${{ steps.slack.outputs.message_id }}
-          channel_id: C02HLKYAU56 # blue-devs
-          status: SUCCESS
-          color: good
-      
-      - name: Notify slack failure
-        if: failure()
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          # Updates existing message from the first step
-          message_id: ${{ steps.slack.outputs.message_id }}
-          channel_id: C02HLKYAU56 # blue-devs
-          status: FAILED
-          color: danger
+   automerge-release-to-main:
+    uses: bholland-bh/blue-action-workflows/automerge_release_down_to_target_branch.yml@main
+    with:
+      target_branch: main
+    secrets:
+      SLACK_NOTIFICATIONS_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
