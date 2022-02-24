@@ -5,7 +5,7 @@ on:
 
 jobs:
    automerge-release-to-main:
-    uses: bholland-bh/blue-action-workflows/automerge_release_down_to_target_branch.yml@main
+    uses: bholland-bh/blue-action-workflows/.github/workflows/automerge_release_down_to_target_branch.yml@main
     with:
       target_branch: main
     secrets:
