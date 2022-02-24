@@ -1,5 +1,3 @@
 # action-sandbox
 
-test a failure alert
-
-hotfix into release
+hopefully this whole thing should fail
