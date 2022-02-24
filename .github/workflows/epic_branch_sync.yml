@@ -3,11 +3,6 @@ on:
   pull_request:
     types: [closed]
 
-name: Epic Branch Sync
-on:
-  pull_request:
-    types: [closed]
-
 jobs:
    epic-branch-sync:
     uses: bholland-bh/blue-action-workflows/.github/workflows/target_regex_sync.yml@main
