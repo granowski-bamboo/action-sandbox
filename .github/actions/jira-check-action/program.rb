@@ -15,10 +15,9 @@ $stdout.flush
 file_data = File.read(ENV['GITHUB_EVENT_PATH'])
 event_data = JSON.parse(file_data)
 
-$stdout.printf(event_data)
+$stdout.printf("--- EVENT DATA ---\n")
+$stdout.printf(event_data.to_json)
 $stdout.flush
-
-$stdout.print(event_data.inspect)
 
 results = event_data["commits"].select do |commit|
   if commit["message"].include?("JIRA")
