@@ -11,6 +11,6 @@ require 'net/http'
 require 'json'
 require 'yaml'
 
-event_data = JSON.parse(ENV['GITHUB_EVENT_PATH'])
+event_data = JSON.parse(File.readlines(ENV['GITHUB_EVENT_PATH']))
 
 $stdout.printf(event_data.to_yaml)
