@@ -1,7 +1,7 @@
 name: 'Jira Task Check'
 description: 'The task that checks Jira to make sure your PR references the Jira item appropriately.'
-inputs:
-outputs:
+#inputs:
+#outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
