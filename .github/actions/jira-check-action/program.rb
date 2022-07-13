@@ -16,8 +16,8 @@ event_data = JSON.parse(file_data.to_json)
 
 $stdout.printf(event_data)
 
-event_data["commits"].each do |commit|
-  if commit["message"].include?("JIRA")
+event_data[:commits].each do |commit|
+  if commit[:message].include?("JIRA")
     $stdout.printf("Found the word 'JIRA' in commit message!\n")
   else
     $stdout.printf("Did not find the word 'JIRA' in commit message.\n")
