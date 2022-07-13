@@ -1,0 +1,7 @@
+on: push
+jobs:
+  jira-check-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Script
+        uses: ./.github/actions/jira-check-action/action.yml
