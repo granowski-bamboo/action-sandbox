@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM ruby:3.1.2-slim
 
 COPY ./program.rb /program.rb
 
