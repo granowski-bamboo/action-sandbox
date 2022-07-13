@@ -17,6 +17,7 @@ event_data = JSON.parse(file_data)
 
 $stdout.printf("--- EVENT DATA ---\n")
 $stdout.printf(event_data.to_json)
+$stdout.printf("------------------\n")
 $stdout.flush
 
 results = event_data["commits"].select do |commit|
