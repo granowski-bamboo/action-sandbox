@@ -12,6 +12,6 @@ ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
 $stdout.printf("-------------------\n")
 
 file_data = File.read(ENV['GITHUB_EVENT_PATH'])
-event_data = JSON.parse(file_data)
+event_data = JSON.parse(file_data.to_json)
 
 $stdout.printf(event_data)
