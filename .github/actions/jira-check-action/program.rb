@@ -11,6 +11,7 @@ $stdout.printf("--- ENVIRONMENT ---\n")
 ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
 $stdout.printf("-------------------\n")
 
-event_data = JSON.parse(File.readlines(ENV['GITHUB_EVENT_PATH']))
+file_data = File.read(ENV['GITHUB_EVENT_PATH'])
+event_data = JSON.parse(file_data)
 
 $stdout.printf(event_data)
