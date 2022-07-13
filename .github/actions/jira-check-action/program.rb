@@ -13,7 +13,7 @@ $stdout.printf("-------------------\n")
 $stdout.flush
 
 file_data = File.read(ENV['GITHUB_EVENT_PATH'])
-event_data = JSON.parse(file_data.to_json)
+event_data = JSON.parse(file_data)
 
 $stdout.printf(event_data)
 $stdout.flush
