@@ -24,7 +24,7 @@ jira_keys_collection = []
 
 results = event_data["commits"].select do |commit|
   reg = Regexp.new(/[a-zA-Z]+-{1}\d+/, Regexp::IGNORECASE | Regexp::MULTILINE)
-  md = reg.match?(commit["message"])
+  md = reg.match(commit["message"])
   captures = md.captures
   if captures.length.positive?
     $stdout.printf("Commit #{commit["id"]} has #{captures.length} Jira key pattern matches\n")
