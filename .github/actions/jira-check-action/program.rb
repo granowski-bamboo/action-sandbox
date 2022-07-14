@@ -24,19 +24,28 @@ jira_keys_collection = []
 
 results = event_data["commits"].select do |commit|
   reg = Regexp.new(/[a-zA-Z]+-{1}\d+/, Regexp::IGNORECASE | Regexp::MULTILINE)
-  if reg.match(commit["message"])
-    match_text = $&
-    jira_keys_collection.push(match_text)
+  md = reg.match?(commit["message"])
+  captures = md.captures
+  if captures.length.positive?
+    $stdout.printf("Commit #{commit["id"]} has #{captures.length} Jira key pattern matches\n")
+    $stdout.flush
+    captures.each do |cap|
+      match_text = cap
+      jira_keys_collection.push(match_text)
+    end
   else
+    $stdout.printf("Commit failed workflow, missing Jira keys -> #{commit["id"]}\n")
     $stdout.printf("No Jira keys were referenced in the commit message, failed workflow!\n")
+    $stdout.flush
     return 1
   end
 
-  $stdout.printf("Found text that matches jira keys below")
-  $stdout.printf("---------------------------------------")
+  $stdout.printf("Found text that matches jira keys below\n")
+  $stdout.printf("---------------------------------------\n")
   jira_keys_collection.each do |jk|
     $stdout.printf("#{jk}\n")
   end
+  $stdout.printf("---------------------------------------\n")
   $stdout.flush
 end
 
