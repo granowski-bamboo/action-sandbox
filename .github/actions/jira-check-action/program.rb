@@ -24,7 +24,7 @@ $stdout.flush
 jira_keys_collection = []
 
 results = event_data["commits"].each do |commit|
-  reg = Regexp.new(/[a-zA-Z]+-{1}\d+/, Regexp::IGNORECASE | Regexp::MULTILINE)
+  reg = Regexp.new("[a-zA-Z]+-{1}\d+", Regexp::IGNORECASE | Regexp::MULTILINE)
   md = reg.match(commit["message"])
   captures = md.to_a
   if captures.size.positive?
