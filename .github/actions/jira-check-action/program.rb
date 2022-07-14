@@ -20,12 +20,24 @@ $stdout.printf(event_data.to_json)
 $stdout.printf("------------------\n")
 $stdout.flush
 
+jira_keys_collection = []
+
 results = event_data["commits"].select do |commit|
-  if commit["message"].include?("JIRA")
-    $stdout.printf("Found the word 'JIRA' in commit message!\n")
+  reg = Regexp.new(/[a-zA-Z]+-{1}\d+/, Regexp::IGNORECASE | Regexp::MULTILINE)
+  if reg.match(commit["message"])
+    match_text = $&
+    jira_keys_collection.push(match_text)
   else
-    $stdout.printf("Did not find the word 'JIRA' in commit message.\n")
+    $stdout.printf("No Jira keys were referenced in the commit message, failed workflow!\n")
+    return 1
   end
+
+  $stdout.printf("Found text that matches jira keys below")
+  $stdout.printf("---------------------------------------")
+  jira_keys_collection.each do |jk|
+    $stdout.printf("#{jk}\n")
+  end
+  $stdout.flush
 end
 
 results.each { |r| $stdout.print r }
