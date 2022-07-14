@@ -24,6 +24,8 @@ $stdout.flush
 jira_keys_collection = []
 
 results = event_data["commits"].each do |commit|
+  $stdout.printf("analysing commit message -> #{commit["message"]}")
+  $stdout.flush
   # reg = Regexp.new("[a-zA-Z]+-{1}\d+", Regexp::IGNORECASE | Regexp::MULTILINE)
   reg = Regexp.new("[a-zA-Z]+-\d+")
   md = reg.match(commit["message"])
@@ -53,3 +55,5 @@ end
 
 results.each { |r| $stdout.print r }
 $stdout.flush
+
+return 0
