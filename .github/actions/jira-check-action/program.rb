@@ -17,16 +17,17 @@ event_data = JSON.parse(file_data)
 
 $stdout.printf("--- EVENT DATA ---\n")
 $stdout.printf(event_data.to_json)
+$stdout.printf("\n")
 $stdout.printf("------------------\n")
 $stdout.flush
 
 jira_keys_collection = []
 
-results = event_data["commits"].select do |commit|
+results = event_data["commits"].each do |commit|
   reg = Regexp.new(/[a-zA-Z]+-{1}\d+/, Regexp::IGNORECASE | Regexp::MULTILINE)
   md = reg.match(commit["message"])
-  captures = md.captures
-  if captures.length.positive?
+  captures = md.to_a
+  if captures.size.positive?
     $stdout.printf("Commit #{commit["id"]} has #{captures.length} Jira key pattern matches\n")
     $stdout.flush
     captures.each do |cap|
