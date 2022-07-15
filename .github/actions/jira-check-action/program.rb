@@ -199,7 +199,8 @@ when 'pull_request'
   if ev.action == 'opened' ||
      ev.action == 'reopened' ||
      ev.action == 'edited' ||
-     ev.action == 'ready_for_review'
+     ev.action == 'ready_for_review' ||
+     ev.action == 'synchronize'
     # todo -> pull the commits from the pull request (ev.pull_request.commits_url), do analysis on their messages
 
     $stdout.printf("--- EVENT DATA ---\n")
