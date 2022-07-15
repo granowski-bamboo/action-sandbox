@@ -1,0 +1,47 @@
+{
+  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+  "id": "326811",
+  "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811",
+  "key": "PMPGATEWAY-8885",
+  "fields": {
+    "issuetype": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/issuetype/10001",
+      "id": "10001",
+      "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+      "iconUrl": "https://hbuco.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+      "name": "Story",
+      "subtask": false,
+      "avatarId": 10315,
+      "hierarchyLevel": 0
+    },
+    "assignee": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+      "accountId": "61a6326cb0b630006a17d6dd",
+      "emailAddress": "dgranowski@bamboohealth.com",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+      },
+      "displayName": "Derrick Granowski",
+      "active": true,
+      "timeZone": "America/Denver",
+      "accountType": "atlassian"
+    },
+    "status": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/status/1",
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "iconUrl": "https://hbuco.atlassian.net/images/icons/statuses/open.png",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "self": "https://hbuco.atlassian.net/rest/api/3/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    }
+  }
+}

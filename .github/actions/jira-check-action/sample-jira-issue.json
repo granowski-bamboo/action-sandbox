@@ -1,0 +1,1307 @@
+{
+  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations,customfield_13087.properties,customfield_13086.properties,customfield_11500.requestTypePractice",
+  "id": "326811",
+  "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811",
+  "key": "PMPGATEWAY-8885",
+  "fields": {
+    "resolution": null,
+    "customfield_11841": null,
+    "customfield_11840": null,
+    "customfield_12921": null,
+    "customfield_10500": null,
+    "customfield_11832": "h1. You have selected the Weekly Roster issue type. Please ensure that your customer is [approved for weekly submission|https://patientping.atlassian.net/wiki/spaces/MO/pages/873726205/Weekly+Roster+Submission+Requirements?utm_term=page&amp;utm_source=connie-slack&amp;utm_medium=referral-external] before continuing.",
+    "customfield_12920": null,
+    "customfield_11831": null,
+    "customfield_11833": null,
+    "customfield_12922": null,
+    "customfield_11836": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/customFieldOption/10574",
+      "value": "Yes Feedback Doc",
+      "id": "10574"
+    },
+    "customfield_12925": null,
+    "customfield_11835": "*Opting for Pre-Approval will request Integrations to load the roster as soon as it is ready, without final approval for the customer. If the roster requires further input from the customer, the standard workflow will apply regardless of this request.",
+    "customfield_12806": null,
+    "customfield_11838": null,
+    "customfield_11837": null,
+    "customfield_12928": null,
+    "customfield_11839": null,
+    "lastViewed": "2022-07-14T15:15:34.877-0400",
+    "customfield_11830": null,
+    "customfield_11700": null,
+    "customfield_11942": null,
+    "customfield_11821": null,
+    "customfield_11941": null,
+    "customfield_11820": null,
+    "customfield_11823": null,
+    "customfield_12912": null,
+    "customfield_11944": null,
+    "customfield_11822": null,
+    "customfield_11943": null,
+    "customfield_12911": null,
+    "customfield_11825": null,
+    "aggregatetimeoriginalestimate": null,
+    "customfield_11827": null,
+    "customfield_12916": null,
+    "customfield_12915": null,
+    "customfield_11826": [],
+    "customfield_11829": null,
+    "customfield_11828": null,
+    "issuelinks": [],
+    "customfield_12919": null,
+    "assignee": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+      "accountId": "61a6326cb0b630006a17d6dd",
+      "emailAddress": "dgranowski@bamboohealth.com",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+        "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+      },
+      "displayName": "Derrick Granowski",
+      "active": true,
+      "timeZone": "America/Denver",
+      "accountType": "atlassian"
+    },
+    "customfield_11940": null,
+    "customfield_11810": null,
+    "customfield_10600": null,
+    "customfield_11933": null,
+    "customfield_10601": null,
+    "customfield_11932": null,
+    "customfield_11811": null,
+    "customfield_11814": null,
+    "customfield_11935": null,
+    "customfield_11934": null,
+    "customfield_11816": null,
+    "customfield_11937": null,
+    "customfield_11936": null,
+    "customfield_12907": null,
+    "customfield_11818": null,
+    "customfield_11817": null,
+    "customfield_11819": null,
+    "subtasks": [],
+    "customfield_11920": null,
+    "customfield_11922": null,
+    "customfield_11801": null,
+    "customfield_11921": null,
+    "customfield_11924": null,
+    "customfield_11803": null,
+    "customfield_11802": null,
+    "customfield_11926": null,
+    "customfield_11805": null,
+    "customfield_11804": null,
+    "customfield_11807": null,
+    "customfield_11928": null,
+    "customfield_11927": null,
+    "customfield_11806": null,
+    "votes": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/issue/PMPGATEWAY-8885/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "customfield_11809": null,
+    "customfield_11808": null,
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customfield_11929": null,
+    "issuetype": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/issuetype/10001",
+      "id": "10001",
+      "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+      "iconUrl": "https://hbuco.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+      "name": "Story",
+      "subtask": false,
+      "avatarId": 10315,
+      "hierarchyLevel": 0
+    },
+    "customfield_10700": {
+      "hasEpicLinkFieldDependency": true,
+      "showField": true
+    },
+    "customfield_11911": null,
+    "customfield_11910": null,
+    "customfield_11913": null,
+    "customfield_11912": null,
+    "customfield_11915": null,
+    "customfield_11914": null,
+    "customfield_11917": null,
+    "customfield_11916": null,
+    "customfield_11919": null,
+    "customfield_11918": null,
+    "customfield_13092": null,
+    "customfield_13091": null,
+    "customfield_13093": null,
+    "customfield_13096": null,
+    "customfield_13095": null,
+    "customfield_13098": null,
+    "customfield_13097": null,
+    "customfield_13099": null,
+    "customfield_11900": null,
+    "customfield_11902": null,
+    "customfield_11901": null,
+    "customfield_11904": null,
+    "customfield_11903": null,
+    "customfield_11906": null,
+    "customfield_11905": null,
+    "customfield_11908": null,
+    "customfield_11907": null,
+    "customfield_11909": null,
+    "customfield_13090": null,
+    "customfield_13087": null,
+    "customfield_13086": null,
+    "customfield_13088": null,
+    "timetracking": {},
+    "customfield_10800": "{}",
+    "customfield_13070": null,
+    "customfield_13071": null,
+    "environment": null,
+    "duedate": null,
+    "customfield_12770": null,
+    "customfield_12772": null,
+    "customfield_11200": null,
+    "customfield_12773": null,
+    "customfield_12652": null,
+    "customfield_12655": null,
+    "customfield_12776": null,
+    "customfield_12896": null,
+    "customfield_12646": null,
+    "customfield_12888": null,
+    "customfield_12648": null,
+    "customfield_12647": null,
+    "customfield_12889": null,
+    "customfield_12768": null,
+    "customfield_12640": null,
+    "customfield_12884": null,
+    "customfield_12642": null,
+    "customfield_12765": null,
+    "customfield_12886": null,
+    "customfield_12885": null,
+    "customfield_12877": null,
+    "customfield_12756": null,
+    "customfield_12635": null,
+    "customfield_12876": null,
+    "customfield_12637": null,
+    "customfield_12999": null,
+    "customfield_12636": null,
+    "timeestimate": null,
+    "status": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/status/1",
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "iconUrl": "https://hbuco.atlassian.net/images/icons/statuses/open.png",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "self": "https://hbuco.atlassian.net/rest/api/3/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "customfield_12871": null,
+    "customfield_12992": null,
+    "customfield_12750": null,
+    "customfield_12870": null,
+    "customfield_12752": null,
+    "customfield_12630": null,
+    "customfield_11300": null,
+    "customfield_12993": null,
+    "customfield_11301": null,
+    "customfield_12875": null,
+    "customfield_12633": null,
+    "customfield_12866": null,
+    "customfield_12987": null,
+    "customfield_11898": null,
+    "customfield_12986": null,
+    "customfield_11897": null,
+    "customfield_12626": null,
+    "customfield_12988": null,
+    "customfield_12746": null,
+    "customfield_12867": null,
+    "customfield_11899": null,
+    "customfield_12628": null,
+    "aggregatetimeestimate": null,
+    "customfield_12869": null,
+    "creator": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=610aa6c9ae72b2006f650df1",
+      "accountId": "610aa6c9ae72b2006f650df1",
+      "emailAddress": "cdwetzelberger@bamboohealth.com",
+      "avatarUrls": {
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/48",
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/24",
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/16",
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/32"
+      },
+      "displayName": "Craig Wetzelberger",
+      "active": true,
+      "timeZone": "America/New_York",
+      "accountType": "atlassian"
+    },
+    "customfield_11890": null,
+    "customfield_11892": null,
+    "customfield_12983": null,
+    "customfield_11894": null,
+    "customfield_11893": null,
+    "customfield_10200": null,
+    "customfield_12985": null,
+    "customfield_11896": null,
+    "customfield_12863": null,
+    "customfield_12621": null,
+    "customfield_12976": null,
+    "customfield_11887": null,
+    "customfield_12734": null,
+    "customfield_12733": null,
+    "customfield_11886": null,
+    "customfield_12975": null,
+    "customfield_11888": null,
+    "customfield_12738": null,
+    "customfield_12737": null,
+    "customfield_12739": null,
+    "timespent": null,
+    "aggregatetimespent": null,
+    "customfield_11883": null,
+    "customfield_10310": null,
+    "customfield_11882": null,
+    "customfield_10311": null,
+    "customfield_12853": null,
+    "customfield_12611": null,
+    "customfield_12732": null,
+    "customfield_11885": null,
+    "customfield_11884": null,
+    "customfield_10302": null,
+    "customfield_12965": null,
+    "customfield_11997": null,
+    "customfield_12602": null,
+    "customfield_12601": null,
+    "customfield_10303": null,
+    "customfield_12964": null,
+    "customfield_12843": null,
+    "customfield_11996": null,
+    "customfield_12722": null,
+    "customfield_12604": null,
+    "customfield_12967": null,
+    "customfield_11999": null,
+    "customfield_10304": null,
+    "customfield_11998": null,
+    "customfield_10305": null,
+    "customfield_12845": null,
+    "customfield_12603": null,
+    "customfield_12966": null,
+    "customfield_10306": null,
+    "customfield_12606": null,
+    "customfield_10307": null,
+    "customfield_12605": null,
+    "customfield_10308": null,
+    "customfield_12608": null,
+    "customfield_10309": null,
+    "customfield_12607": null,
+    "customfield_12609": null,
+    "workratio": -1,
+    "customfield_11870": null,
+    "customfield_11991": null,
+    "customfield_11990": null,
+    "customfield_11993": null,
+    "customfield_11992": null,
+    "customfield_11871": null,
+    "customfield_10300": null,
+    "customfield_11995": null,
+    "customfield_12842": null,
+    "customfield_12600": null,
+    "customfield_12720": null,
+    "customfield_11994": null,
+    "customfield_10301": null,
+    "customfield_12954": null,
+    "customfield_11865": null,
+    "customfield_11986": null,
+    "customfield_12712": null,
+    "customfield_11502": null,
+    "customfield_11864": null,
+    "customfield_11501": null,
+    "customfield_12832": null,
+    "customfield_12711": null,
+    "customfield_11985": null,
+    "customfield_12956": null,
+    "customfield_11504": null,
+    "customfield_11867": null,
+    "customfield_11988": null,
+    "customfield_11503": null,
+    "customfield_12955": null,
+    "customfield_11866": null,
+    "customfield_11987": null,
+    "customfield_11506": null,
+    "customfield_11869": null,
+    "customfield_11989": null,
+    "customfield_11868": null,
+    "customfield_11505": null,
+    "customfield_12719": null,
+    "customfield_11980": null,
+    "customfield_11982": null,
+    "customfield_11861": null,
+    "customfield_11860": null,
+    "customfield_11981": null,
+    "customfield_11984": null,
+    "customfield_12710": null,
+    "customfield_12952": null,
+    "customfield_11863": null,
+    "customfield_11500": null,
+    "customfield_11983": null,
+    "customfield_11862": null,
+    "customfield_11854": null,
+    "customfield_11975": null,
+    "customfield_12701": null,
+    "customfield_12942": null,
+    "customfield_11974": null,
+    "customfield_12821": null,
+    "customfield_12700": null,
+    "customfield_11853": null,
+    "customfield_11856": null,
+    "customfield_11977": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/customFieldOption/11005",
+      "value": "No",
+      "id": "11005"
+    },
+    "customfield_12824": null,
+    "customfield_12823": null,
+    "customfield_11855": null,
+    "customfield_12702": null,
+    "customfield_11976": null,
+    "customfield_11858": null,
+    "customfield_11979": null,
+    "customfield_12705": null,
+    "customfield_12704": null,
+    "customfield_11857": null,
+    "customfield_11978": null,
+    "customfield_12949": null,
+    "customfield_12707": null,
+    "customfield_12827": null,
+    "customfield_11859": null,
+    "customfield_12948": null,
+    "customfield_12709": null,
+    "customfield_12829": null,
+    "customfield_12708": null,
+    "customfield_11971": null,
+    "customfield_11850": null,
+    "customfield_11970": null,
+    "customfield_12941": null,
+    "customfield_11973": null,
+    "customfield_11852": null,
+    "customfield_11851": null,
+    "customfield_11972": null,
+    "customfield_11843": null,
+    "customfield_12932": null,
+    "customfield_11600": null,
+    "customfield_12931": null,
+    "customfield_11842": null,
+    "customfield_11845": null,
+    "customfield_12934": null,
+    "customfield_12933": null,
+    "customfield_11844": null,
+    "customfield_11968": null,
+    "customfield_11847": null,
+    "customfield_12935": null,
+    "customfield_11967": null,
+    "customfield_11846": null,
+    "customfield_11849": null,
+    "customfield_11848": null,
+    "customfield_11969": null,
+    "customfield_12818": null,
+    "customfield_12011": null,
+    "customfield_12010": null,
+    "customfield_12013": null,
+    "customfield_13102": null,
+    "customfield_13101": null,
+    "customfield_12012": null,
+    "customfield_12015": null,
+    "customfield_13104": null,
+    "customfield_12014": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/customFieldOption/11047",
+      "value": "No",
+      "id": "11047"
+    },
+    "customfield_12017": null,
+    "customfield_13105": null,
+    "customfield_12016": null,
+    "customfield_12008": null,
+    "customfield_12007": null,
+    "customfield_12009": null,
+    "customfield_12000": null,
+    "customfield_12002": null,
+    "customfield_12001": null,
+    "customfield_12004": null,
+    "customfield_12003": null,
+    "customfield_12006": null,
+    "labels": [
+      "SRE.Prioritize",
+      "TechDebt"
+    ],
+    "customfield_12005": null,
+    "components": [],
+    "customfield_12474": null,
+    "reporter": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=610aa6c9ae72b2006f650df1",
+      "accountId": "610aa6c9ae72b2006f650df1",
+      "emailAddress": "cdwetzelberger@bamboohealth.com",
+      "avatarUrls": {
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/48",
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/24",
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/16",
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/32"
+      },
+      "displayName": "Craig Wetzelberger",
+      "active": true,
+      "timeZone": "America/New_York",
+      "accountType": "atlassian"
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "project": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/project/11564",
+      "id": "11564",
+      "key": "PMPGATEWAY",
+      "name": "PMP Gateway",
+      "projectTypeKey": "software",
+      "simplified": false,
+      "avatarUrls": {
+        "48x48": "https://hbuco.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/11203",
+        "24x24": "https://hbuco.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/11203?size=small",
+        "16x16": "https://hbuco.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/11203?size=xsmall",
+        "32x32": "https://hbuco.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/11203?size=medium"
+      },
+      "projectCategory": {
+        "self": "https://hbuco.atlassian.net/rest/api/3/projectCategory/10000",
+        "id": "10000",
+        "description": "",
+        "name": "Health : PMP"
+      }
+    },
+    "customfield_11000": null,
+    "customfield_12695": null,
+    "customfield_12697": null,
+    "customfield_12698": null,
+    "customfield_12447": null,
+    "customfield_12449": null,
+    "resolutiondate": null,
+    "watches": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/issue/PMPGATEWAY-8885/watchers",
+      "watchCount": 3,
+      "isWatching": true
+    },
+    "customfield_12680": null,
+    "customfield_12684": null,
+    "customfield_12683": null,
+    "customfield_12323": null,
+    "customfield_12685": null,
+    "customfield_12446": null,
+    "customfield_12678": null,
+    "customfield_12315": null,
+    "updated": "2022-07-13T17:53:52.116-0400",
+    "timeoriginalestimate": null,
+    "customfield_12792": null,
+    "description": {
+      "version": 1,
+      "type": "doc",
+      "content": [
+        {
+          "type": "heading",
+          "attrs": {
+            "level": 3
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Per our SDLC process pull requests must have a Jira ticket.  If there is no active Jira ticket the developer is supposed to supply a ticket prefix and -0+."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example:  PMPINTERCO-0 or PMPGATEWAY-0000 "
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "attrs": {
+            "level": 3
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "The ASK:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Please when a user creates a Pull request in Jira. Check the Pull request title,  "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create a github action that will check  the PR title.  Parse out the Jira ticket tags, call the Jira API and check that the ticket  :"
+            }
+          ]
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Exists and is in one of the following status:  'Ready For Release”,  “Ready For Test”, “In Test”,  “In Progress”.  "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "If the issue does not exist in Jira it should have a -0+ number.  "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Contains release/YYMM-a|b|c with optional -#"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Possible Regex:"
+            }
+          ]
+        },
+        {
+          "type": "codeBlock",
+          "attrs": {},
+          "content": [
+            {
+              "type": "text",
+              "text": "/(?:PMPGATEWAY|PMPINTERCO|AHCP|HPS|HPSERV|BLUE|CLEAR|CLOUD|PMPAWARE)-?\\d+/gi"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If possible fail to create the PR and supply a message as to why the PR could not be created."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If it fails, write a comment on the PR saying why it failed.  “Example PMPCLEAR-1234 is Done, cannot merge code to that ticket.”  Please re-write your commit message.  "
+            }
+          ]
+        }
+      ]
+    },
+    "customfield_12791": null,
+    "customfield_11100": null,
+    "customfield_12672": null,
+    "customfield_12793": null,
+    "customfield_10011": "1|i012cv:",
+    "customfield_11101": null,
+    "customfield_12796": null,
+    "customfield_12675": null,
+    "customfield_11102": null,
+    "customfield_12314": null,
+    "customfield_12313": null,
+    "customfield_12797": null,
+    "customfield_12676": null,
+    "customfield_10005": null,
+    "customfield_10006": null,
+    "customfield_10007": null,
+    "customfield_12308": null,
+    "summary": "GIT ACTION to check for jira tags",
+    "customfield_12781": null,
+    "customfield_12782": null,
+    "customfield_12661": null,
+    "customfield_10000": null,
+    "customfield_10001": "2022-07-13T15:52:19.929-0400",
+    "customfield_10002": null,
+    "customfield_12784": null,
+    "customfield_10003": null,
+    "customfield_10004": null,
+    "customfield_12657": null,
+    "customfield_12778": null,
+    "customfield_12656": null,
+    "customfield_12779": null,
+    "customfield_12658": null,
+    "comment": {
+      "comments": [
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/615580",
+          "id": "615580",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=610aa6c9ae72b2006f650df1",
+            "accountId": "610aa6c9ae72b2006f650df1",
+            "emailAddress": "cdwetzelberger@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/32"
+            },
+            "displayName": "Craig Wetzelberger",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "version": 1,
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "5f4e4300e11542004602a7b0",
+                      "text": "@Brad Holland",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "  - Here is the ticket we talked about.  I am thinking, if possible, we should key off of the PR title rather than the commit messages themselves.  Because that is something the user creating the PR can change right there without having to re-write the git history.      Which would make it way easier on the user.  Since all of our commits pretty much require a PR that should be enough."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "But If that is not possible we could still go with the commit messages.  "
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=610aa6c9ae72b2006f650df1",
+            "accountId": "610aa6c9ae72b2006f650df1",
+            "emailAddress": "cdwetzelberger@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/610aa6c9ae72b2006f650df1/a4f5621d-5a6e-46af-8d62-01d124e04dce/32"
+            },
+            "displayName": "Craig Wetzelberger",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-07T09:11:06.160-0400",
+          "updated": "2022-07-07T09:11:06.160-0400",
+          "jsdPublic": true
+        },
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/617878",
+          "id": "617878",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "version": 1,
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Update: "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "610aa6c9ae72b2006f650df1",
+                      "text": "@Craig Wetzelberger",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " Based on the reading, it’s not possible to deny the creation of the PR. It is also not possible to force the PR into a draft. Seemingly the creation of a PR is noted to be an ‘atomic operation’ and then the workflows and such of GitHub actions kick off."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "However, it looks like it is possible to call the Github API to create a “review” on a PR."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "We could auto-create a review on a PR that was created seemingly by creating an action that would do that. This should reject the ability to merge without addressing the review as our current settings are made to do. When someone says “changes requested” it usually blocks the merge."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://docs.github.com/en/rest/pulls/reviews#create-a-review-for-a-pull-request"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-13T15:52:19.929-0400",
+          "updated": "2022-07-13T15:52:19.929-0400",
+          "jsdPublic": true
+        },
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/617946",
+          "id": "617946",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=5f4e4300e11542004602a7b0",
+            "accountId": "5f4e4300e11542004602a7b0",
+            "emailAddress": "bholland@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/32"
+            },
+            "displayName": "Brad Holland",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "61a6326cb0b630006a17d6dd",
+                      "text": "@Derrick Granowski",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " returning a non-zero status code, should cause the workflow to be represented as a failure. Which should fall into the use case of requiring all checks to pass before merge."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://docs.github.com/en/actions/creating-actions/setting-exit-codes-for-actions"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": []
+              }
+            ],
+            "type": "doc",
+            "version": 1
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=5f4e4300e11542004602a7b0",
+            "accountId": "5f4e4300e11542004602a7b0",
+            "emailAddress": "bholland@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/32"
+            },
+            "displayName": "Brad Holland",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-13T17:23:26.498-0400",
+          "updated": "2022-07-13T17:23:26.498-0400",
+          "jsdPublic": true
+        },
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/617947",
+          "id": "617947",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "version": 1,
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "5f4e4300e11542004602a7b0",
+                      "text": "@Brad Holland",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " Good point, I forgot about that. But it still doesn’t mean the PR won’t get created. So yes, we should already get the failed ‘check’ technically and won’t need anything more complicated than that."
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-13T17:25:08.980-0400",
+          "updated": "2022-07-13T17:25:08.980-0400",
+          "jsdPublic": true
+        },
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/617948",
+          "id": "617948",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=5f4e4300e11542004602a7b0",
+            "accountId": "5f4e4300e11542004602a7b0",
+            "emailAddress": "bholland@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/32"
+            },
+            "displayName": "Brad Holland",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "61a6326cb0b630006a17d6dd",
+                      "text": "@Derrick Granowski",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " you can define multiple triggers for the action. "
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "However, since we’re validating and checking commit messages, and force push is disabled on remote, the only solution to resolve bad commits, is to close the PR, delete the branch from remote, rebase, and try again."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "I wonder if force push can be allowed on feature/ and bugfix/ branches. Then you would redo the workflow on updates"
+                  }
+                ]
+              }
+            ],
+            "type": "doc",
+            "version": 1
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=5f4e4300e11542004602a7b0",
+            "accountId": "5f4e4300e11542004602a7b0",
+            "emailAddress": "bholland@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f4e4300e11542004602a7b0/529ba327-0cdc-4bf2-b961-298d80644a0b/32"
+            },
+            "displayName": "Brad Holland",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-13T17:29:03.166-0400",
+          "updated": "2022-07-13T17:29:03.166-0400",
+          "jsdPublic": true
+        },
+        {
+          "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment/617953",
+          "id": "617953",
+          "author": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "version": 1,
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "5f4e4300e11542004602a7b0",
+                      "text": "@Brad Holland",
+                      "accessLevel": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " I read some article suggesting that we could close the PR automatically through a GitHub-API call, however that would probably just stock up a bunch of dead PRs for bad pushes and we probably don’t need that kind of thing."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Your point about force push is possible. The docs I’m seeing in GitHub suggest you can put a branch protection rule with allow force push for specific people."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://hbuco.atlassian.net/rest/api/3/user?accountId=61a6326cb0b630006a17d6dd",
+            "accountId": "61a6326cb0b630006a17d6dd",
+            "emailAddress": "dgranowski@bamboohealth.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "24x24": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "16x16": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png",
+              "32x32": "https://secure.gravatar.com/avatar/1ebd02b35964b6680707c0e22d7d79f3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDG-1.png"
+            },
+            "displayName": "Derrick Granowski",
+            "active": true,
+            "timeZone": "America/Denver",
+            "accountType": "atlassian"
+          },
+          "created": "2022-07-13T17:53:52.116-0400",
+          "updated": "2022-07-13T17:53:52.116-0400",
+          "jsdPublic": true
+        }
+      ],
+      "self": "https://hbuco.atlassian.net/rest/api/3/issue/326811/comment",
+      "maxResults": 6,
+      "total": 6,
+      "startAt": 0
+    },
+    "statuscategorychangedate": "2022-07-07T09:07:44.299-0400",
+    "customfield_13061": null,
+    "customfield_13060": null,
+    "customfield_13062": null,
+    "customfield_13065": null,
+    "fixVersions": [],
+    "customfield_10900": {
+      "id": "6",
+      "title": "Blue Team",
+      "isShared": true
+    },
+    "customfield_13053": null,
+    "priority": {
+      "self": "https://hbuco.atlassian.net/rest/api/3/priority/10007",
+      "iconUrl": "https://hbuco.atlassian.net/images/icons/genericissue.gif",
+      "name": "Undefined",
+      "id": "10007"
+    },
+    "customfield_13059": null,
+    "versions": [],
+    "customfield_13160": null,
+    "customfield_13162": null,
+    "customfield_13164": null,
+    "customfield_13166": null,
+    "customfield_13165": [
+      {
+        "self": "https://hbuco.atlassian.net/rest/api/3/customFieldOption/23777",
+        "value": "No Corrections",
+        "id": "23777"
+      }
+    ],
+    "customfield_13047": null,
+    "customfield_13167": null,
+    "customfield_13049": null,
+    "customfield_13030": null,
+    "customfield_13151": null,
+    "customfield_13150": null,
+    "customfield_13032": null,
+    "customfield_13153": null,
+    "customfield_13152": null,
+    "customfield_13031": null,
+    "customfield_13034": null,
+    "customfield_13155": null,
+    "customfield_13154": null,
+    "customfield_13157": null,
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "customfield_13156": null,
+    "customfield_13158": null,
+    "customfield_13039": null,
+    "customfield_12051": null,
+    "customfield_13140": null,
+    "customfield_12050": null,
+    "customfield_13142": null,
+    "customfield_12053": [],
+    "customfield_13020": null,
+    "customfield_12052": null,
+    "customfield_13141": null,
+    "customfield_13144": null,
+    "customfield_13023": null,
+    "customfield_13143": null,
+    "customfield_13146": null,
+    "customfield_13145": null,
+    "customfield_13148": null,
+    "customfield_13147": null,
+    "customfield_13029": null,
+    "customfield_13149": null,
+    "customfield_13028": null,
+    "customfield_13019": null,
+    "issuerestriction": {
+      "issuerestrictions": {},
+      "shouldDisplay": false
+    },
+    "customfield_12040": null,
+    "customfield_13131": null,
+    "customfield_12042": null,
+    "created": "2022-07-07T09:07:43.059-0400",
+    "customfield_12041": null,
+    "customfield_12044": null,
+    "customfield_13133": null,
+    "customfield_12043": null,
+    "customfield_13132": null,
+    "customfield_13135": null,
+    "customfield_12046": null,
+    "customfield_12045": null,
+    "customfield_13134": null,
+    "customfield_12048": null,
+    "customfield_13137": null,
+    "customfield_12047": null,
+    "customfield_13136": null,
+    "customfield_13018": null,
+    "customfield_13139": null,
+    "customfield_13017": null,
+    "customfield_12049": null,
+    "customfield_13009": null,
+    "customfield_12031": null,
+    "customfield_13120": null,
+    "customfield_12030": null,
+    "customfield_13001": null,
+    "customfield_12033": null,
+    "customfield_13122": null,
+    "customfield_13121": null,
+    "customfield_12032": null,
+    "customfield_13000": null,
+    "customfield_13003": null,
+    "customfield_12035": null,
+    "customfield_13124": null,
+    "customfield_12034": null,
+    "customfield_13002": null,
+    "customfield_12037": null,
+    "customfield_12036": null,
+    "customfield_13125": null,
+    "customfield_12039": null,
+    "customfield_13128": null,
+    "customfield_13127": null,
+    "customfield_12038": null,
+    "customfield_13119": null,
+    "customfield_13118": null,
+    "customfield_12029": null,
+    "security": null,
+    "attachment": [],
+    "customfield_12020": null,
+    "customfield_12022": null,
+    "customfield_13110": null,
+    "customfield_12024": null,
+    "customfield_12023": null,
+    "customfield_13112": null,
+    "customfield_12026": null,
+    "customfield_12025": null,
+    "customfield_13117": null,
+    "customfield_12028": null,
+    "customfield_12027": null,
+    "customfield_13116": null,
+    "customfield_12019": null,
+    "customfield_13108": null,
+    "customfield_12018": null,
+    "customfield_13107": null,
+    "customfield_13109": null
+  }
+}
