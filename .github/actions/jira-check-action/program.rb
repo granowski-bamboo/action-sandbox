@@ -84,6 +84,8 @@ module Validators
   end
 
   class PullRequestValidator
+    attr_reader :pr_title_is_valid, :jira_keys, :id
+
     def initialize(pr)
       super()
 
