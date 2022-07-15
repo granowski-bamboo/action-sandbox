@@ -115,8 +115,8 @@ class JiraValidation
   end
 
   def execute
-    jusername = ENV['JIRA_USER_NAME'] || 'dgranowski@bamboohealth.com'
-    jtoken = ENV['JIRA_API_TOKEN'] || 'h9DKOC2nZywbo0INmcKTC247'
+    jusername = ENV['JIRA_USER_NAME']
+    jtoken = ENV['JIRA_API_TOKEN']
     calculated_auth_header = Base64.encode64("#{jusername}:#{jtoken}").sub("\n", '').chomp!
 
     auth_header = "Basic #{calculated_auth_header}"
