@@ -1,4 +1,4 @@
-on: push
+on: [push, pull_request]
 jobs:
   jira-check-task:
     runs-on: ubuntu-latest
