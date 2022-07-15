@@ -35,7 +35,7 @@ class PushEventFileReader
   attr_reader :data
 
   def initialize(file)
-    file_data = File.read(file || '/Users/dgranowski/Repositories/action-sandbox/.github/actions/jira-check-action/sample-event.json')
+    file_data = File.read(file)
 
     @data = JSON.parse(file_data)
   end
@@ -151,9 +151,18 @@ class JiraValidation
   end
 end
 
-case ENV['GITHUB_EVENT_NAME'] || 'push'
+PR_ACTION_MESSAGE = {
+  'opened': 'Processing a newly opened PR.',
+  'reopened': 'Processing a previously created PR that is being reopened.',
+  'edited': 'Processing a recently edited PR.',
+  'ready_for_review': 'Processing a PR that was recently converted from a draft.'
+}.freeze
+
+case ENV['GITHUB_EVENT_NAME']
 when 'pull_request'
   ev = PullRequestEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
+
+  $stdout.printf("#{PR_ACTION_MESSAGE[ev.action]}\n")
 
   if ev.action == 'opened' ||
      ev.action == 'reopened' ||
@@ -161,12 +170,18 @@ when 'pull_request'
      ev.action == 'ready_for_review'
     # todo -> ev.changes[title], ev.changes[body] analysis ; these are during the edited action
     # todo -> pull the commits from the pull request (ev.pull_request.commits_url), do analysis on their messages
+
+    $stdout.printf("--- EVENT DATA ---\n")
+    $stdout.printf(ev.data.to_json)
+    $stdout.printf("\n")
+    $stdout.printf("------------------\n\n")
+    $stdout.flush
+  else
+    $stdout.printf("The action '#{ev.action}' is not processed for pull request events. Doing nothing.\n")
   end
-  nil
+
+  exit 0
 when 'push'
-  #
-  # file_data = File.read('/Users/dgranowski/Repositories/action-sandbox/.github/actions/jira-check-action/sample-event.json')
-  # event_data = JSON.parse(file_data)
   ev = PushEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
 
   $stdout.printf("--- EVENT DATA ---\n")
@@ -217,8 +232,11 @@ when 'push'
   has_invalid_calls = jv.results.any? { |r| !r.valid }
 
   if has_invalid_calls
-    return 1
+    exit 1
   end
 
-  return 0
+  exit 0
+else
+  $stdout.printf("The event '#{ENV['GITHUB_EVENT_NAME']}' is not known for this action. Doing nothing.\n")
+  exit 0
 end
