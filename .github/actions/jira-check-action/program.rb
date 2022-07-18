@@ -218,6 +218,8 @@ when 'pull_request'
     if result == false
       $stdout.printf("PR failed workflow, missing Jira keys in title.\n")
       $stdout.flush
+
+      exit 1
     else
       $stdout.printf("PR has #{prv.jira_keys.length} Jira key pattern matches\n")
       $stdout.flush
