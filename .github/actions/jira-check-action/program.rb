@@ -168,16 +168,16 @@ class JiraValidation
       # @results.push(response)
       case response.code
       when '404'
-        # $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
+        $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
-        # $stdout.printf("Found key '#{jkey}' in Jira\n")
+        $stdout.printf("Found key '#{jkey}' in Jira\n")
         #
         # todo -> need to put in validations on the status of the jira task.
         jira_json = puts response.read_body
         r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
       else
-        # $stdout.printf("An issue occurred trying to query for Jira key '#{jkey}' -> http status code '#{response.code}'\n")
+        $stdout.printf("An issue occurred trying to query for Jira key '#{jkey}' -> http status code '#{response.code}'\n")
         r = Result.new(valid: false, status_code: response.code, body: nil, jira_key: jkey)
       end
       @results.push(r)
