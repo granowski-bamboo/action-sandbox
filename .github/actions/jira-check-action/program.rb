@@ -21,7 +21,7 @@ class PullRequestEventFileReader
   attr_reader :data
 
   def initialize(file)
-    file_data = File.read(file || '/Users/dgranowski/Repositories/action-sandbox/.github/actions/jira-check-action/sample-event.json')
+    file_data = File.read(file)
 
     @data = JSON.parse(file_data)
   end
@@ -84,7 +84,39 @@ module Validators
   end
 
   class PullRequestValidator
+    attr_reader :pr_title_is_valid, :jira_keys, :id
 
+    def initialize(pr)
+      super()
+
+      @pr = pr
+      @pr_title_is_valid = nil
+      @jira_keys = []
+    end
+
+    def title
+      @pr['title']
+    end
+
+    def pr_title_is_valid?
+      return @pr_title_is_valid unless @pr_title_is_valid.nil?
+
+      # initial state, assume the commit is valid
+      @pr_title_is_valid = true
+
+      matches = @pr["title"].scan(COMMIT_MESSAGE_REGEX)
+
+      if !matches.nil? && matches.length.positive?
+        matches.each do |cap|
+          match_text = cap
+          @jira_keys.push(match_text)
+        end
+      else
+        @pr_title_is_valid = false
+      end
+
+      @pr_title_is_valid
+    end
   end
 end
 
@@ -158,6 +190,8 @@ PR_ACTION_MESSAGE = {
   'ready_for_review': 'Processing a PR that was recently converted from a draft.'
 }.freeze
 
+jira_keys_collection = []
+
 case ENV['GITHUB_EVENT_NAME']
 when 'pull_request'
   ev = PullRequestEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
@@ -167,8 +201,8 @@ when 'pull_request'
   if ev.action == 'opened' ||
      ev.action == 'reopened' ||
      ev.action == 'edited' ||
-     ev.action == 'ready_for_review'
-    # todo -> ev.changes[title], ev.changes[body] analysis ; these are during the edited action
+     ev.action == 'ready_for_review' ||
+     ev.action == 'synchronize'
     # todo -> pull the commits from the pull request (ev.pull_request.commits_url), do analysis on their messages
 
     $stdout.printf("--- EVENT DATA ---\n")
@@ -176,11 +210,28 @@ when 'pull_request'
     $stdout.printf("\n")
     $stdout.printf("------------------\n\n")
     $stdout.flush
+
+    prv = Validators::PullRequestValidator.new(ev.data['pull_request'])
+
+    result = prv.pr_title_is_valid?
+
+    if result == false
+      $stdout.printf("PR failed workflow, missing Jira keys in title.\n")
+      $stdout.flush
+
+      exit 1
+    else
+      $stdout.printf("PR has #{prv.jira_keys.length} Jira key pattern matches\n")
+      $stdout.flush
+    end
+
+    prv.jira_keys.each do |key|
+      jira_keys_collection.push(key)
+    end
   else
     $stdout.printf("The action '#{ev.action}' is not processed for pull request events. Doing nothing.\n")
+    exit 0
   end
-
-  exit 0
 when 'push'
   ev = PushEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
 
@@ -190,7 +241,6 @@ when 'push'
   $stdout.printf("------------------\n\n")
   $stdout.flush
 
-  jira_keys_collection = []
   commits_failing_validation = []
 
   ev.commits.each do |commit|
@@ -226,17 +276,18 @@ when 'push'
     $stdout.printf("#{commit_id}\n")
   end
   $stdout.printf("----------------------------------------\n\n")
-
-  jv = JiraValidation.new(jira_keys_collection)
-
-  has_invalid_calls = jv.results.any? { |r| !r.valid }
-
-  if has_invalid_calls
-    exit 1
-  end
-
-  exit 0
 else
   $stdout.printf("The event '#{ENV['GITHUB_EVENT_NAME']}' is not known for this action. Doing nothing.\n")
   exit 0
 end
+
+jv = JiraValidation.new(jira_keys_collection)
+
+has_invalid_calls = jv.results.any? { |r| !r.valid }
+
+if has_invalid_calls
+  $stdout.printf("There are some invalid jira-key states for this PR/commit to be accept.")
+  exit 1
+end
+
+exit 0

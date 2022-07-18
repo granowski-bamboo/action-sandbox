@@ -7,3 +7,5 @@ It shall do things for pushes and pull request events!
 
 Okay
 Yes
+
+Woot!
