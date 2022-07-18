@@ -172,6 +172,8 @@ class JiraValidation
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
         # $stdout.printf("Found key '#{jkey}' in Jira\n")
+        #
+        # todo -> need to put in validations on the status of the jira task.
         jira_json = puts response.read_body
         r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
       else
