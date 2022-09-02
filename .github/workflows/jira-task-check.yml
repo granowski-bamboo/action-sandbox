@@ -1,3 +1,4 @@
+name: Jira Task Check
 on: [push, pull_request]
 jobs:
   jira-check-task:
