@@ -18,6 +18,7 @@ on: [push, pull_request, workflow_dispatch]
 #env:
 #  JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
 #  JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+env: ${{ secrets }}
 jobs:
   jira-check-task:
     runs-on: ubuntu-latest
@@ -28,4 +29,5 @@ jobs:
         env:
           JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
           JIRA_API_TOKEN: rawr-heyo-123
+#        secrets: inherit
         uses: ./.github/actions/jira-check-action
