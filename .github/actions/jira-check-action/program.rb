@@ -6,16 +6,25 @@ require 'json'
 require 'yaml'
 require 'base64'
 
+if ENV['JIRA_USER_NAME'].nil? || ENV['JIRA_USER_NAME'].empty?
+  $stdout.printf('To run this workflow, the JIRA_USER_NAME action secret need be set.')
+  return ~0 # note: any non-zero value is a failed status for github actions
+end
+
+if ENV['JIRA_API_KEY'].nil? || ENV['JIRA_API_KEY'].empty?
+  $stdout.printf('To run this workflow, the JIRA_API_KEY action secret need be set.')
+  return ~0 # (non zero ->) failed
+end
 
 # for debugging, drop the environment vars of the ruby process so we can see what to expect
-$stdout.printf("--- ENVIRONMENT ---\n")
-ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
-$stdout.printf("-------------------\n\n")
-$stdout.flush
+# $stdout.printf("--- ENVIRONMENT ---\n")
+# ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
+# $stdout.printf("-------------------\n\n")
+# $stdout.flush
 
-
+RELEASE_PR_TITLE_REGEX = Regexp.new('[Rr][Ee][Ll][Ee][Aa][Ss][Ee]\/\d{4}([-](a|b|c))?')
 COMMIT_MESSAGE_REGEX = /[a-zA-Z]+-\d+/.freeze
-BAMBOO_JIRA_ORG = "hbuco".freeze
+BAMBOO_JIRA_ORG = 'hbuco'.freeze
 
 class PullRequestEventFileReader
   attr_reader :data
@@ -58,7 +67,7 @@ module Validators
     end
 
     def id
-      @commit["id"]
+      @commit['id']
     end
 
     def message_is_valid?
@@ -67,7 +76,7 @@ module Validators
       # initial state, assume the commit is valid
       @message_is_valid = true
 
-      matches = @commit["message"].scan(COMMIT_MESSAGE_REGEX)
+      matches = @commit['message'].scan(COMMIT_MESSAGE_REGEX)
 
       if !matches.nil? && matches.length.positive?
         matches.each do |cap|
@@ -104,7 +113,8 @@ module Validators
       # initial state, assume the commit is valid
       @pr_title_is_valid = true
 
-      matches = @pr["title"].scan(COMMIT_MESSAGE_REGEX)
+      matches = @pr['title'].scan(COMMIT_MESSAGE_REGEX)
+      matches_release = @pr['title'].scan(RELEASE_PR_TITLE_REGEX)
 
       if !matches.nil? && matches.length.positive?
         matches.each do |cap|
@@ -112,6 +122,13 @@ module Validators
           @jira_keys.push(match_text)
         end
       else
+        if !matches_release.nil? && matches_release.length.positive?
+          $stdout.printf("The PR title matches one of a release 'release/YYMM-[abc]' so it is valid.")
+          return @pr_title_is_valid
+        end
+
+        $stdout.printf('The PR title does not contain a JIRA key or is not a release, so it is not a valid PR title.')
+
         @pr_title_is_valid = false
       end
 
@@ -165,17 +182,20 @@ class JiraValidation
       request['Authorization'] = auth_header
 
       response = https.request(request)
-      # @results.push(response)
+
       case response.code
       when '404'
-        # $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
+        $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
+
+        # todo -> validate the key is a "BLUE-0" key
+        #
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
-        # $stdout.printf("Found key '#{jkey}' in Jira\n")
+        $stdout.printf("Found key '#{jkey}' in Jira\n")
         jira_json = puts response.read_body
         r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
       else
-        # $stdout.printf("An issue occurred trying to query for Jira key '#{jkey}' -> http status code '#{response.code}'\n")
+        $stdout.printf("An issue occurred trying to query for Jira key '#{jkey}' -> http status code '#{response.code}'\n")
         r = Result.new(valid: false, status_code: response.code, body: nil, jira_key: jkey)
       end
       @results.push(r)
@@ -203,13 +223,12 @@ when 'pull_request'
      ev.action == 'edited' ||
      ev.action == 'ready_for_review' ||
      ev.action == 'synchronize'
-    # todo -> pull the commits from the pull request (ev.pull_request.commits_url), do analysis on their messages
 
-    $stdout.printf("--- EVENT DATA ---\n")
-    $stdout.printf(ev.data.to_json)
-    $stdout.printf("\n")
-    $stdout.printf("------------------\n\n")
-    $stdout.flush
+    # $stdout.printf("--- EVENT DATA ---\n")
+    # $stdout.printf(ev.data.to_json)
+    # $stdout.printf("\n")
+    # $stdout.printf("------------------\n\n")
+    # $stdout.flush
 
     prv = Validators::PullRequestValidator.new(ev.data['pull_request'])
 
@@ -219,30 +238,32 @@ when 'pull_request'
       $stdout.printf("PR failed workflow, missing Jira keys in title.\n")
       $stdout.flush
 
-      exit 1
+      return ~0
     else
       $stdout.printf("PR has #{prv.jira_keys.length} Jira key pattern matches\n")
       $stdout.flush
     end
 
+    # gather the jira keys for later validation
     prv.jira_keys.each do |key|
       jira_keys_collection.push(key)
     end
   else
     $stdout.printf("The action '#{ev.action}' is not processed for pull request events. Doing nothing.\n")
-    exit 0
+    return ~0
   end
 when 'push'
   ev = PushEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
 
-  $stdout.printf("--- EVENT DATA ---\n")
-  $stdout.printf(ev.data.to_json)
-  $stdout.printf("\n")
-  $stdout.printf("------------------\n\n")
-  $stdout.flush
+  # $stdout.printf("--- EVENT DATA ---\n")
+  # $stdout.printf(ev.data.to_json)
+  # $stdout.printf("\n")
+  # $stdout.printf("------------------\n\n")
+  # $stdout.flush
 
   commits_failing_validation = []
 
+  # ensure that each commit has a Jira key in it
   ev.commits.each do |commit|
     cv = Validators::CommitValidator.new(commit)
 
@@ -257,12 +278,13 @@ when 'push'
       $stdout.flush
     end
 
+    # gather jira keys for more later validation
     cv.jira_keys.each do |key|
       jira_keys_collection.push(key)
     end
   end
 
-  $stdout.printf("Found text that matches jira keys below\n")
+  $stdout.printf("Found text in commit messages that matches jira keys below\n")
   $stdout.printf("---------------------------------------\n")
   jira_keys_collection.each do |jk|
     $stdout.printf("#{jk}\n")
@@ -278,7 +300,7 @@ when 'push'
   $stdout.printf("----------------------------------------\n\n")
 else
   $stdout.printf("The event '#{ENV['GITHUB_EVENT_NAME']}' is not known for this action. Doing nothing.\n")
-  exit 0
+  return ~0
 end
 
 jv = JiraValidation.new(jira_keys_collection)
@@ -286,7 +308,7 @@ jv = JiraValidation.new(jira_keys_collection)
 has_invalid_calls = jv.results.any? { |r| !r.valid }
 
 if has_invalid_calls
-  $stdout.printf("There are some invalid jira-key states for this PR/commit to be accept.")
+  $stdout.printf('There are some invalid jira-key states for this PR/commit to be accept.')
   exit 1
 end
 
