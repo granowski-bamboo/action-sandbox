@@ -6,6 +6,13 @@ require 'json'
 require 'yaml'
 require 'base64'
 
+# for debugging, drop the environment vars of the ruby process so we can see what to expect
+$stdout.printf("--- ENVIRONMENT ---\n")
+ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
+$stdout.printf("-------------------\n\n")
+$stdout.flush
+
+
 if ENV['JIRA_USER_NAME'].nil? || ENV['JIRA_USER_NAME'].empty?
   $stdout.printf('To run this workflow, the JIRA_USER_NAME action secret need be set.')
   exit 1 # note: any non-zero value is a failed status for github actions
@@ -15,12 +22,6 @@ if ENV['JIRA_API_TOKEN'].nil? || ENV['JIRA_API_TOKEN'].empty?
   $stdout.printf('To run this workflow, the JIRA_API_TOKEN action secret need be set.')
   exit 1 # (non zero ->) failed
 end
-
-# for debugging, drop the environment vars of the ruby process so we can see what to expect
-# $stdout.printf("--- ENVIRONMENT ---\n")
-# ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
-# $stdout.printf("-------------------\n\n")
-# $stdout.flush
 
 RELEASE_PR_TITLE_REGEX = Regexp.new('[Rr][Ee][Ll][Ee][Aa][Ss][Ee]\/\d{4}([-](a|b|c))?')
 COMMIT_MESSAGE_REGEX = /[a-zA-Z]+-\d+/.freeze
