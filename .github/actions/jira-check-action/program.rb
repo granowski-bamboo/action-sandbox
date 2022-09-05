@@ -6,11 +6,11 @@ require 'json'
 require 'yaml'
 require 'base64'
 
-# for debugging, drop the environment vars of the ruby process so we can see what to expect
-$stdout.printf("--- ENVIRONMENT ---\n")
-ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
-$stdout.printf("-------------------\n\n")
-$stdout.flush
+# # for debugging, drop the environment vars of the ruby process so we can see what to expect
+# $stdout.printf("--- ENVIRONMENT ---\n")
+# ENV.each { |k,v| $stdout.printf("#{k}=#{v}\n") }
+# $stdout.printf("-------------------\n\n")
+# $stdout.flush
 
 
 if ENV['JIRA_USER_NAME'].nil? || ENV['JIRA_USER_NAME'].empty?
