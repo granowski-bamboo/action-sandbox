@@ -189,7 +189,6 @@ class JiraValidation
         $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
 
         # todo -> validate the key is a "BLUE-0" key
-        #
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
         $stdout.printf("Found key '#{jkey}' in Jira\n")
