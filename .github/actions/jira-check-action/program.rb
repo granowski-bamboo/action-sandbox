@@ -11,8 +11,8 @@ if ENV['JIRA_USER_NAME'].nil? || ENV['JIRA_USER_NAME'].empty?
   exit 1 # note: any non-zero value is a failed status for github actions
 end
 
-if ENV['JIRA_API_KEY'].nil? || ENV['JIRA_API_KEY'].empty?
-  $stdout.printf('To run this workflow, the JIRA_API_KEY action secret need be set.')
+if ENV['JIRA_API_TOKEN'].nil? || ENV['JIRA_API_TOKEN'].empty?
+  $stdout.printf('To run this workflow, the JIRA_API_TOKEN action secret need be set.')
   exit 1 # (non zero ->) failed
 end
 
