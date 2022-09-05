@@ -15,9 +15,9 @@ on: [push, pull_request, workflow_dispatch]
 #        default: ${{ secrets.JIRA_USER_NAME }}
 #        description: 'username to use when calling JIRA REST API'
 #        type: string
-env:
-  JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
-  JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+#env:
+#  JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
+#  JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 jobs:
   jira-check-task:
     runs-on: ubuntu-latest
@@ -27,5 +27,5 @@ jobs:
       - name: Run Script
         env:
           JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
-          JIRA_API_KEY: rawr-heyo-123
+          JIRA_API_TOKEN: rawr-heyo-123
         uses: ./.github/actions/jira-check-action
