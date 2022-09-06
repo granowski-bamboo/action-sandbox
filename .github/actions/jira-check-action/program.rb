@@ -121,6 +121,8 @@ module Validators
     private
 
     def scan_for_commits_with_jira_key
+      $stdout.printf("Scanning PR title for jira issue key -> '#{@pr['title']}'\n")
+
       matches = @pr['title'].scan(COMMIT_MESSAGE_REGEX)
       if !matches.nil? && matches.length.positive?
         matches.each do |cap|
@@ -130,16 +132,18 @@ module Validators
 
         true
       else
-        $stdout.printf('The PR title does not contain a JIRA key or is not a release, so it is not a valid PR title.')
+        $stdout.printf("The PR title does not contain a JIRA key or is not a release, so it is not a valid PR title.\n")
 
         false
       end
     end
 
     def pr_title_contains_release?
+      $stdout.printf("Scanning PR title for release pattern -> '#{@pr['title']}'\n")
+
       matches_release = @pr['title'].scan(RELEASE_PR_TITLE_REGEX)
       if !matches_release.nil? && matches_release.length.positive?
-        $stdout.printf("The PR title matches one of a release 'release/YYMM-[abc]' so it is valid.")
+        $stdout.printf("The PR title matches one of a release 'release/YYMM-[abc]' so it is valid.\n")
         true
       else
         false
