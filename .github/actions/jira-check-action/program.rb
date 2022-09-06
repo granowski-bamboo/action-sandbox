@@ -182,7 +182,11 @@ class JiraValidation
     auth_header = "Basic #{calculated_auth_header}"
 
     @keys.each do |jkey|
-      next if /[a-zA-Z]+-0+/.match?(jkey)
+      if /[a-zA-Z]+-0+/.match?(jkey)
+        $stdout.printf("Jira issue with key '#{jkey}' is a 'Zero' (issue placeholder) key, assuming valid")
+        @results.push(Result.new(valid: true, status_code: :ok, body: nil, jira_key: jkey))
+        next
+      end
 
       url = URI("https://hbuco.atlassian.net/rest/api/3/issue/#{jkey}?fields=key,assignee,status,issuetype")
 
@@ -198,17 +202,27 @@ class JiraValidation
       when '404'
         $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
 
-        # todo -> validate the key is a "BLUE-0" key
-
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
         $stdout.printf("Found key '#{jkey}' in Jira\n")
         jira_json = puts response.read_body
-        r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
+
+        status_name = jira_json['fields']['status']['name']
+        not_one_of_acceptable_statuses = [
+          'Ready For Release', 'Ready For Test', 'In Progress'
+        ].contains?(status_name)
+
+        if status_name.nil? || status_name.empty? || not_one_of_acceptable_statuses
+          $stdout.printf("Jira Issue with key '#{jkey}' is in an accepted status for PR completion.")
+          r = Result.new(valid: false, status_code: :ok, body: jira_json, jira_key: jkey)
+        else
+          r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
+        end
       else
         $stdout.printf("An issue occurred trying to query for Jira key '#{jkey}' -> http status code '#{response.code}'\n")
         r = Result.new(valid: false, status_code: response.code, body: nil, jira_key: jkey)
       end
+
       @results.push(r)
     end
   end
@@ -249,7 +263,7 @@ when 'pull_request'
       $stdout.printf("PR failed workflow, missing Jira keys in title.\n")
       $stdout.flush
 
-      return ~0
+      exit 1
     else
       $stdout.printf("PR has #{prv.jira_keys.length} Jira key pattern matches\n")
       $stdout.flush
@@ -261,7 +275,7 @@ when 'pull_request'
     end
   else
     $stdout.printf("The action '#{ev.action}' is not processed for pull request events. Doing nothing.\n")
-    return ~0
+    exit 0
   end
 when 'push'
   ev = PushEventFileReader.new(ENV['GITHUB_EVENT_PATH'])
@@ -311,7 +325,7 @@ when 'push'
   $stdout.printf("----------------------------------------\n\n")
 else
   $stdout.printf("The event '#{ENV['GITHUB_EVENT_NAME']}' is not known for this action. Doing nothing.\n")
-  return ~0
+  exit 1
 end
 
 jv = JiraValidation.new(jira_keys_collection)
