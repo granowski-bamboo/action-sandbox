@@ -1,24 +1,5 @@
 name: Jira Task Check
 on: [push, pull_request, workflow_dispatch]
-#on:
-#  push: {}
-#  pull_request: {}
-#  workflow_dispatch:
-#    inputs:
-#      JIRA_API_TOKEN:
-#        required: true
-#        default: ${{ secrets.JIRA_API_TOKEN }}
-#        description: 'the API token used with a user account to use the JIRA REST API'
-#        type: string
-#      JIRA_USER_NAME:
-#        required: true
-#        default: ${{ secrets.JIRA_USER_NAME }}
-#        description: 'username to use when calling JIRA REST API'
-#        type: string
-#env:
-#  JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
-#  JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-#env: ${{ secrets }}
 jobs:
   jira-check-task:
     runs-on: ubuntu-latest
@@ -29,5 +10,4 @@ jobs:
         env:
           JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-#        secrets: inherit
         uses: ./.github/actions/jira-check-action
