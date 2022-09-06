@@ -210,7 +210,7 @@ class JiraValidation
         status_name = jira_json['fields']['status']['name']
         not_one_of_acceptable_statuses = [
           'Ready For Release', 'Ready For Test', 'In Progress'
-        ].contains?(status_name)
+        ].include?(status_name)
 
         if status_name.nil? || status_name.empty? || not_one_of_acceptable_statuses
           $stdout.printf("Jira Issue with key '#{jkey}' is in an accepted status for PR completion.")
