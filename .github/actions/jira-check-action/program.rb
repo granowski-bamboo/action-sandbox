@@ -183,7 +183,7 @@ class JiraValidation
 
     @keys.each do |jkey|
       if /[a-zA-Z]+-0+/.match?(jkey)
-        $stdout.printf("Jira issue with key '#{jkey}' is a 'Zero' (issue placeholder) key, assuming valid")
+        $stdout.printf("Jira issue with key '#{jkey}' is a 'Zero' (issue placeholder) key, assuming valid\n")
         @results.push(Result.new(valid: true, status_code: :ok, body: nil, jira_key: jkey))
         next
       end
@@ -212,8 +212,8 @@ class JiraValidation
           'Ready For Release', 'Ready For Test', 'In Progress'
         ].include?(status_name)
 
-        if status_name.nil? || status_name.empty? || not_one_of_acceptable_statuses
-          $stdout.printf("Jira Issue with key '#{jkey}' is in an accepted status for PR completion.")
+        if not_one_of_acceptable_statuses
+          $stdout.printf("Jira Issue with key '#{jkey}' is not in an accepted status for PR completion.\n")
           r = Result.new(valid: false, status_code: :ok, body: jira_json, jira_key: jkey)
         else
           r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
@@ -333,7 +333,7 @@ jv = JiraValidation.new(jira_keys_collection)
 has_invalid_calls = jv.results.any? { |r| !r.valid }
 
 if has_invalid_calls
-  $stdout.printf('There are some invalid jira-key states for this PR/commit to be accept.')
+  $stdout.printf("There are some invalid jira-key states for this PR/commit to be acceptable. Failing the workflow.\n")
   exit 1
 end
 
