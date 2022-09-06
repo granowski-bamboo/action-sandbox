@@ -213,9 +213,10 @@ class JiraValidation
         ].include?(status_name)
 
         if not_one_of_acceptable_statuses
-          $stdout.printf("Jira Issue with key '#{jkey}' is not in an accepted status for PR completion.\n")
+          $stdout.printf("'#{jkey}' NOT ACCEPTABLE. The status read -> '#{status_name}'\n")
           r = Result.new(valid: false, status_code: :ok, body: jira_json, jira_key: jkey)
         else
+          $stdout.printf("'#{jkey}' ACCEPTABLE. The status read -> '#{status_name}'\n")
           r = Result.new(valid: true, status_code: :ok, body: jira_json, jira_key: jkey)
         end
       else
