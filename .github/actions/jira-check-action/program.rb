@@ -212,7 +212,7 @@ class JiraValidation
           'Ready For Release', 'Ready For Test', 'In Progress'
         ].index { |stat| status_name.eql?(stat) }
 
-        if not_one_of_acceptable_statuses
+        if !not_one_of_acceptable_statuses
           $stdout.printf("'#{jkey}' NOT ACCEPTABLE. The status read -> '#{status_name}'\n")
           r = Result.new(valid: false, status_code: :ok, body: jira_json, jira_key: jkey)
         else
