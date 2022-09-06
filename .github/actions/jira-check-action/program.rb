@@ -205,7 +205,7 @@ class JiraValidation
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
         $stdout.printf("Found key '#{jkey}' in Jira\n")
-        jira_json = puts response.read_body
+        jira_json = JSON.parse(response.read_body)
 
         status_name = jira_json['fields']['status']['name']
         not_one_of_acceptable_statuses = [
