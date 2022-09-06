@@ -183,7 +183,7 @@ class JiraValidation
 
     @keys.each do |jkey|
       if /[a-zA-Z]+-0+/.match?(jkey)
-        $stdout.printf("Jira issue with key '#{jkey}' is a 'Zero' (issue placeholder) key, assuming valid\n")
+        $stdout.printf("'#{jkey}' is a 'Zero' (issue placeholder) key, assuming valid\n")
         @results.push(Result.new(valid: true, status_code: :ok, body: nil, jira_key: jkey))
         next
       end
@@ -204,13 +204,13 @@ class JiraValidation
 
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
-        $stdout.printf("Found key '#{jkey}' in Jira\n")
+        $stdout.printf("'#{jkey}' Found key in Jira\n")
         jira_json = JSON.parse(response.read_body)
 
         status_name = jira_json['fields']['status']['name']
         not_one_of_acceptable_statuses = [
           'Ready For Release', 'Ready For Test', 'In Progress'
-        ].include?(status_name)
+        ].index { |stat| status_name.eql?(stat) }
 
         if not_one_of_acceptable_statuses
           $stdout.printf("'#{jkey}' NOT ACCEPTABLE. The status read -> '#{status_name}'\n")
