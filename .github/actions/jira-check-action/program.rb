@@ -200,7 +200,7 @@ class JiraValidation
 
       case response.code
       when '404'
-        $stdout.printf("Jira key '#{jkey}' does not exist in Jira.\n")
+        $stdout.printf("'#{jkey}' NOT ACCEPTABLE, does not exist in Jira.\n")
 
         r = Result.new(valid: false, status_code: :not_found, body: nil, jira_key: jkey)
       when '200'
@@ -334,7 +334,7 @@ jv = JiraValidation.new(jira_keys_collection)
 has_invalid_calls = jv.results.any? { |r| !r.valid }
 
 if has_invalid_calls
-  $stdout.printf("There are some invalid jira-key states for this PR/commit to be acceptable. Failing the workflow.\n")
+  $stdout.printf("There are some invalid jira states for this PR/commit to be acceptable. See output messages of this action above. Failing the workflow.\n")
   exit 1
 end
 
