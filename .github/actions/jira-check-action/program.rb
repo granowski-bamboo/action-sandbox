@@ -12,7 +12,6 @@ require 'base64'
 # $stdout.printf("-------------------\n\n")
 # $stdout.flush
 
-
 if ENV['JIRA_USER_NAME'].nil? || ENV['JIRA_USER_NAME'].empty?
   $stdout.printf('To run this workflow, the JIRA_USER_NAME action secret need be set.')
   exit 1 # note: any non-zero value is a failed status for github actions
@@ -85,7 +84,6 @@ module Validators
           @jira_keys.push(match_text)
         end
       else
-        # commits_failing_validation.push(commit['id'])
         @message_is_valid = false
       end
 
@@ -93,6 +91,7 @@ module Validators
     end
   end
 
+  #noinspection RubyUnnecessaryReturnValue
   class PullRequestValidator
     attr_reader :pr_title_is_valid, :jira_keys, :id
 
@@ -111,29 +110,40 @@ module Validators
     def pr_title_is_valid?
       return @pr_title_is_valid unless @pr_title_is_valid.nil?
 
-      # initial state, assume the commit is valid
-      @pr_title_is_valid = true
+      @pr_title_is_valid = pr_title_contains_release?
 
+      return if @pr_title_is_valid
+
+      @pr_title_is_valid = scan_for_commits_with_jira_key
+      @pr_title_is_valid
+    end
+
+    private
+
+    def scan_for_commits_with_jira_key
       matches = @pr['title'].scan(COMMIT_MESSAGE_REGEX)
-      matches_release = @pr['title'].scan(RELEASE_PR_TITLE_REGEX)
-
       if !matches.nil? && matches.length.positive?
         matches.each do |cap|
           match_text = cap
           @jira_keys.push(match_text)
         end
-      else
-        if !matches_release.nil? && matches_release.length.positive?
-          $stdout.printf("The PR title matches one of a release 'release/YYMM-[abc]' so it is valid.")
-          return @pr_title_is_valid
-        end
 
+        true
+      else
         $stdout.printf('The PR title does not contain a JIRA key or is not a release, so it is not a valid PR title.')
 
-        @pr_title_is_valid = false
+        false
       end
+    end
 
-      @pr_title_is_valid
+    def pr_title_contains_release?
+      matches_release = @pr['title'].scan(RELEASE_PR_TITLE_REGEX)
+      if !matches_release.nil? && matches_release.length.positive?
+        $stdout.printf("The PR title matches one of a release 'release/YYMM-[abc]' so it is valid.")
+        true
+      else
+        false
+      end
     end
   end
 end
