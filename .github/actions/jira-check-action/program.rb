@@ -293,6 +293,8 @@ when 'push'
 
   commits_failing_validation = []
 
+  commits_to_jira_keys = {}
+
   # ensure that each commit has a Jira key in it
   ev.commits.each do |commit|
     cv = Validators::CommitValidator.new(commit)
@@ -301,11 +303,15 @@ when 'push'
 
     if result == false
       $stdout.printf("Commit failed workflow, missing Jira keys -> #{cv.id}\n")
-      $stdout.printf("No Jira keys were referenced in the commit message, failed workflow!\n\n")
+      $stdout.printf("No Jira keys were referenced in the commit message!\n\n")
       $stdout.flush
+
+      commits_failing_validation.push(cv.id)
     else
       $stdout.printf("Commit #{cv.id} has #{cv.jira_keys.length} Jira key pattern matches\n")
       $stdout.flush
+
+      commits_to_jira_keys[cv.id] = cv.jira_keys
     end
 
     # gather jira keys for more later validation
@@ -316,8 +322,11 @@ when 'push'
 
   $stdout.printf("Found text in commit messages that matches jira keys below\n")
   $stdout.printf("---------------------------------------\n")
-  jira_keys_collection.each do |jk|
-    $stdout.printf("#{jk}\n")
+  # jira_keys_collection.each do |jk|
+  #   $stdout.printf("#{jk}\n")
+  # end
+  commits_to_jira_keys.each do |kv|
+    $stdout.printf("'#{kv[0]}' -> #{kv[1]}")
   end
   $stdout.printf("---------------------------------------\n\n")
   $stdout.flush
