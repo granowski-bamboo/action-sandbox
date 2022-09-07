@@ -326,7 +326,7 @@ when 'push'
   #   $stdout.printf("#{jk}\n")
   # end
   commits_to_jira_keys.each do |kv|
-    $stdout.printf("'#{kv[0]}' -> #{kv[1]}")
+    $stdout.printf("'#{kv[0]}' -> #{kv[1]}\n")
   end
   $stdout.printf("---------------------------------------\n\n")
   $stdout.flush
