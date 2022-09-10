@@ -1,0 +1,7 @@
+name: Jira Check Task
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  jira-check-task:
+    uses: bamboohealth/blue-reusable-actions/.github/workflows/jira-task-check.yml@main
+    secrets: inherit
